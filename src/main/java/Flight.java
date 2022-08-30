@@ -51,11 +51,11 @@ public class Flight {
         this.departureLocation = departureLocation;
     }
 
-    public Passenger[] getPassengers() {
+    public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
 
-    public void setPassengers(Passenger[] passengers) {
+    public void setPassengers(ArrayList<Passenger> passengers) {
         this.passengers = passengers;
     }
 }
