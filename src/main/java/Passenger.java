@@ -11,6 +11,10 @@ public class Passenger {
         this.contactInfo = contactInfo;
     }
 
+    //Methods
+    public void createBooking (Flight flight){
+        flight.addPassenger(this);
+    }
 
     //Getters and setters
     public String getName() {
