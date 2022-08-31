@@ -9,28 +9,32 @@ public class Runner {
         Airline airline = new Airline("EasyJet");
 
         Scanner input3 = new Scanner(System.in);
-        System.out.println("Please select usertype,type admin or user");
+        System.out.println("Please select usertype, type admin or user");
         String userType = input3.nextLine();
 
         if (userType.equals("admin")){
             boolean stillUsingApp = true;
-            System.out.println("Welcome, admin. What would you like to do next?");
+            System.out.println("Welcome, admin.");
             while (stillUsingApp) {
                 System.out.println("What would you like to do next?");
-                System.out.println("Type 'create' to create a new booking.");
-                System.out.println("Type 'cancel' to cancel a booking.");
-                System.out.println("Type 'quit to quit the app'");
+                System.out.println("Type 'flights' to display a list of available flights.");
+                System.out.println("Type 'create' to create a new flight.");
+                System.out.println("Type 'cancel' to cancel a flight.");
+                System.out.println("Type 'quit' to quit the app.");
 
                 Scanner input4 = new Scanner(System.in);
 
                 String response = input4.nextLine().toLowerCase();
-                if (response.equals("create")){
+                if (response.equals("flights")) {
+                    airline.displayFlights();
+
+                } else if (response.equals("create")){
                     System.out.println("What is the flight number?");
                     int response2 = input4.nextInt();
                     System.out.println("What is the flight destination?");
-                    Location response3 = Location.valueOf(input4.next().toLowerCase());
+                    Location response3 = Location.valueOf(input4.next());
                     System.out.println("What is the flight departure location?");
-                    Location response4 = Location.valueOf(input4.next().toLowerCase());
+                    Location response4 = Location.valueOf(input4.next());
                     airline.addFlight(new Flight(response2,response3,response4));
 
 
@@ -42,9 +46,12 @@ public class Runner {
                             airline.cancelFlight(flight);
                             System.out.println("Flight cancelled");
                         }
+                        break;
                     }
                 } else if (response.equals("quit")) {
                     stillUsingApp = false;
+                } else {
+                    System.out.println("Please enter a valid keyword.");
                 }
             }
 
