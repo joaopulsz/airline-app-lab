@@ -20,7 +20,7 @@ public class Airline {
     }
 
     public void displayFlights() {
-        System.out.println("All available flights are displayed below");
+        System.out.println("All available flights are displayed below:");
         for (Flight flight: flights) {
             System.out.println(flight.getFlightNumber() +": flying to "+ flight.getDestination()+", from "+ flight.getDepartureLocation());
             }

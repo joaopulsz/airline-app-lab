@@ -16,20 +16,20 @@ public class Flight {
 
     //Methods
     public String addPassenger(Passenger passenger){
-        if(passengers.size()>99){
-            return "Sorry this flight is booked.";
+        if(passengers.size() >= 100){
+            return "Sorry, this flight is booked.";
         } else {
             passengers.add(passenger);
-            return "Passenger added.";
+            return "Booking completed.";
         }
     }
 
     public String removePassenger(Passenger passenger){
         if (this.passengers.contains(passenger)){
             passengers.remove(passenger);
-            return "Passenger has been removed";
+            return "Your booking has been cancelled.";
         } else {
-            return  "Passenger not found.";
+            return  "Booking not found.";
         }
 
     }

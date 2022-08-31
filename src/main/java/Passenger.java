@@ -13,10 +13,14 @@ public class Passenger {
 
     //Methods
     public void createBooking (Flight flight){
-        flight.addPassenger(this);
+        String response = flight.addPassenger(this);
+        System.out.println(response);
     }
 
-    public void cancelBooking (Flight flight) {flight.removePassenger(this);}
+    public void cancelBooking (Flight flight) {
+        String response = flight.removePassenger(this);
+        System.out.println(response);
+    }
 
     //Getters and setters
     public String getName() {
