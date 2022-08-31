@@ -1,3 +1,4 @@
+import java.lang.reflect.Type;
 import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.Scanner;
@@ -13,13 +14,38 @@ public class Runner {
 
         if (userType.equals("admin")){
             boolean stillUsingApp = true;
-
+            System.out.println("Welcome, admin. What would you like to do next?");
             while (stillUsingApp) {
-                System.out.println("Welcome, admin. What would you like to do next?");
+                System.out.println("What would you like to do next?");
                 System.out.println("Type 'create' to create a new booking.");
                 System.out.println("Type 'cancel' to cancel a booking.");
+                System.out.println("Type 'quit to quit the app'");
 
-                if
+                Scanner input4 = new Scanner(System.in);
+
+                String response = input4.nextLine().toLowerCase();
+                if (response.equals("create")){
+                    System.out.println("What is the flight number?");
+                    int response2 = input4.nextInt();
+                    System.out.println("What is the flight destination?");
+                    Location response3 = Location.valueOf(input4.next().toLowerCase());
+                    System.out.println("What is the flight departure location?");
+                    Location response4 = Location.valueOf(input4.next().toLowerCase());
+                    airline.addFlight(new Flight(response2,response3,response4));
+
+
+                } else if (response.equals("cancel")){
+                    System.out.println("What is the flight number you want to cancel?");
+                    int response5 = input4.nextInt();
+                    for (Flight flight : airline.getFlights()){
+                        if (flight.getFlightNumber()==response5){
+                            airline.cancelFlight(flight);
+                            System.out.println("Flight cancelled");
+                        }
+                    }
+                } else if (response.equals("quit")) {
+                    stillUsingApp = false;
+                }
             }
 
         } else if (userType.equals("user")) {
