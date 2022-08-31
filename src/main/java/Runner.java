@@ -7,18 +7,20 @@ public class Runner {
     public static void main(String[] args) {
         Airline airline = new Airline("EasyJet");
 
-
-
         Scanner input3 = new Scanner(System.in);
         System.out.println("Please select usertype,type admin or user");
         String userType = input3.nextLine();
 
         if (userType.equals("admin")){
-            System.out.println("Welcome, admin. What would you like to do next?");
-            System.out.println("Type 'create' to create a new booking.");
-            System.out.println("Type 'cancel' to cancel a booking.");
+            boolean stillUsingApp = true;
 
+            while (stillUsingApp) {
+                System.out.println("Welcome, admin. What would you like to do next?");
+                System.out.println("Type 'create' to create a new booking.");
+                System.out.println("Type 'cancel' to cancel a booking.");
 
+                if
+            }
 
         } else if (userType.equals("user")) {
             //App setup
