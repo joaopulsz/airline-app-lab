@@ -16,6 +16,8 @@ public class Passenger {
         flight.addPassenger(this);
     }
 
+    public void cancelBooking (Flight flight) {flight.removePassenger(this);}
+
     //Getters and setters
     public String getName() {
         return name;

@@ -12,7 +12,7 @@ public class PassengerTest {
     @BeforeEach
     public void setUp(){
         this.passenger = new Passenger("Khatija", 12345678, "abcdef");
-        this.flight = new Flight(2468, "Los Angeles", "London");
+        this.flight = new Flight(2468, Location.NewYork, Location.NewYork);
 
     }
 
@@ -20,8 +20,13 @@ public class PassengerTest {
     public void canCreateBooking(){
         passenger.createBooking(flight);
         assertThat(flight.getPassengers().size()).isEqualTo(1);
+    }
 
-
+    @Test
+    public void canCancelBooking(){
+        passenger.createBooking(flight);
+        passenger.cancelBooking(flight);
+        assertThat(flight.getPassengers().size()).isEqualTo(0);
     }
 
 

@@ -1,15 +1,13 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Flight {
 
     private int flightNumber;
-    private String destination;
-    private String departureLocation;
+    private Location destination;
+    private Location departureLocation;
     private ArrayList<Passenger> passengers;
 
-    public Flight(int flightNumber, String destination, String departureLocation) {
+    public Flight(int flightNumber, Location destination, Location departureLocation) {
         this.flightNumber = flightNumber;
         this.destination = destination;
         this.departureLocation = departureLocation;
@@ -26,6 +24,16 @@ public class Flight {
         }
     }
 
+    public String removePassenger(Passenger passenger){
+        if (this.passengers.contains(passenger)){
+            passengers.remove(passenger);
+            return "Passenger has been removed";
+        } else {
+            return  "Passenger not found.";
+        }
+
+    }
+
     //Getters and setters
     public int getFlightNumber() {
         return flightNumber;
@@ -35,19 +43,19 @@ public class Flight {
         this.flightNumber = flightNumber;
     }
 
-    public String getDestination() {
+    public Location getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(Location destination) {
         this.destination = destination;
     }
 
-    public String getDepartureLocation() {
+    public Location getDepartureLocation() {
         return departureLocation;
     }
 
-    public void setDepartureLocation(String departureLocation) {
+    public void setDepartureLocation(Location departureLocation) {
         this.departureLocation = departureLocation;
     }
 
