@@ -19,6 +19,13 @@ public class Airline {
             flights.remove(flight);
     }
 
+    public void displayFlights() {
+        System.out.println("All available flights are displayed below");
+        for (Flight flight: flights) {
+            System.out.println(flight.getFlightNumber() +": flying to "+ flight.getDestination()+", from "+ flight.getDepartureLocation());
+            }
+    }
+
 
     //Getters and setters
     public String getAirlineName() {
